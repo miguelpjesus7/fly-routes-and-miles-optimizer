@@ -4,6 +4,7 @@ import com.flightoptimizer.domain.Airport;
 import com.flightoptimizer.domain.ConnectionValidator;
 import com.flightoptimizer.domain.FlightSegment;
 import com.flightoptimizer.graph.FlightGraph;
+import com.flightoptimizer.domain.Itinerary;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -29,11 +30,11 @@ class FlightFinderViabilityTest{
 
 		FlightGraph graph = graphWith(firstFlight, secondFlight, thirdFlight);
 
-		List<List<FlightSegment>> allRoutes = finder(graph).findAllRoutes(gru, bsb, 2);
+		List<Itinerary> allRoutes = finder(graph).findAllRoutes(gru, bsb, 2);
 
 		assertEquals(List.of(
-					List.of(firstFlight), 
-					List.of(secondFlight, thirdFlight)
+					new Itinerary(List.of(firstFlight)), 
+					new Itinerary(List.of(secondFlight, thirdFlight))
 				), 
 				allRoutes
 			);
@@ -48,10 +49,10 @@ class FlightFinderViabilityTest{
 
 		FlightGraph graph = graphWith(firstFlight, secondFlight, thirdFlight, fourthFlight);
 
-		List<List<FlightSegment>> allRoutes = finder(graph).findAllRoutes(gru, mcz, 4);
+		List<Itinerary> allRoutes = finder(graph).findAllRoutes(gru, mcz, 4);
 
 		assertEquals(
-			List.of(List.of(thirdFlight, fourthFlight)),
+			List.of(new Itinerary(List.of(thirdFlight, fourthFlight))),
 			allRoutes
 		);
 	}	
@@ -66,7 +67,7 @@ class FlightFinderViabilityTest{
 
 		FlightGraph graph = graphWith(firstFlight, secondFlight, thirdFlight, fourthFlight, fifthFlight);
 
-		List<List<FlightSegment>> allRoutes = finder(graph).findAllRoutes(gru, mcz, 2);
+		List<Itinerary> allRoutes = finder(graph).findAllRoutes(gru, mcz, 2);
 
 		assertTrue(allRoutes.isEmpty());
 	}
@@ -88,7 +89,7 @@ class FlightFinderViabilityTest{
 
 		FlightGraph graph = graphWith(firstFlight, secondFlight);
 
-		List<List<FlightSegment>> allRoutes = finder(graph).findAllRoutes(gru, rec, 2);
+		List<Itinerary> allRoutes = finder(graph).findAllRoutes(gru, rec, 2);
 		
 		assertTrue(allRoutes.isEmpty());
 	}

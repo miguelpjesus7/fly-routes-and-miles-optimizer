@@ -1,6 +1,7 @@
 package com.flightoptimizer.search;
 
 import com.flightoptimizer.domain.FlightSegment;
+import com.flightoptimizer.domain.Itinerary;
 import com.flightoptimizer.domain.ConnectionValidator;
 import com.flightoptimizer.domain.Airport;
 import com.flightoptimizer.graph.FlightGraph;
@@ -26,7 +27,7 @@ public class FlightFinderViability{
 		
 	}	
 
-	public List<List<FlightSegment>> findAllRoutes (Airport origin, Airport destination, int maximumSegments) {
+	public List<Itinerary> findAllRoutes (Airport origin, Airport destination, int maximumSegments) {
 		if (origin == null || destination == null) {
 			throw new IllegalArgumentException("Origin and destination airports must not be null");
 		}
@@ -34,7 +35,7 @@ public class FlightFinderViability{
 			throw new IllegalArgumentException("Maximum segments must be positive");
 		}
 
-		List<List<FlightSegment>> allRoutes = new ArrayList<>();
+		List<Itinerary> allRoutes = new ArrayList<>();
 		Queue<List<FlightSegment>> frontier = new ArrayDeque<>();
 		
 		for(FlightSegment firstFlight : graph.getFlightsFrom(origin)){
@@ -47,7 +48,7 @@ public class FlightFinderViability{
 			FlightSegment lastFlight = currentRoute.get(currentRoute.size() - 1);
 
 			if (lastFlight.getDestination().equals(destination)){
-				allRoutes.add(currentRoute);
+				allRoutes.add(new Itinerary(currentRoute));
 				continue;
 			}
 			
