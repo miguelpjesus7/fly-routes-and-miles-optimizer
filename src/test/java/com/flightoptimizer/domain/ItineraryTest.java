@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -89,6 +90,57 @@ public class ItineraryTest {
         assertThrows(
             IllegalArgumentException.class,
             ()-> new Itinerary(List.of(firstFlight, secondFlight))
+        );
+    }
+
+    @Test 
+    void returnSegmentsCount(){
+        Airport gru = new Airport("GRU", "São Paulo");
+        Airport cnf = new Airport("CNF", "Belo Horizonte");
+        Airport rec = new Airport("REC", "Recife");
+
+        FlightSegment firstFlight = flight("LA3000", gru, cnf, 10, 00, 11, 00);
+        FlightSegment secondFlight = flight("LA3001", cnf, rec, 12, 00, 13, 00);    
+        
+        Itinerary itinerary = new Itinerary(List.of(firstFlight, secondFlight));
+        assertEquals(
+            2, 
+            itinerary.segmentsCount()
+        );
+    }
+
+    @Test 
+    void calculateNumberOfConnections(){
+        Airport gru = new Airport("GRU", "São Paulo");
+        Airport cnf = new Airport("CNF", "Belo Horizonte");
+        Airport rec = new Airport("REC", "Recife");
+
+        FlightSegment firstFlight = flight("LA3000", gru, cnf, 10, 00, 11, 00);
+        FlightSegment secondFlight = flight("LA3001", cnf, rec, 13, 00, 14, 00);    
+        
+        Itinerary itinerary = new Itinerary(List.of(firstFlight, secondFlight));
+        assertEquals(
+            1, 
+            itinerary.connectionCount()
+        );
+
+    }
+
+    @Test 
+    void returnTotalDuration(){
+        Airport gru = new Airport("GRU", "São Paulo");
+        Airport cnf = new Airport("CNF", "Belo Horizonte");
+        Airport rec = new Airport("REC", "Recife");
+
+        FlightSegment firstFlight = flight("LA3000", gru, cnf, 10, 00, 11, 00);
+        FlightSegment secondFlight = flight("LA3001", cnf, rec, 13, 00, 14, 00);    
+        
+        Itinerary itinerary = new Itinerary(List.of(firstFlight, secondFlight));
+
+        Duration expectedDuration = Duration.ofHours(4);
+        assertEquals(
+            expectedDuration,
+            itinerary.totalDuration()
         );
     }
 
