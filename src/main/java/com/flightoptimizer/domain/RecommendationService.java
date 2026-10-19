@@ -14,7 +14,7 @@ public class RecommendationService {
         this.ranker = ranker;
     }
     
-    Optional<Recommendation> recommend(List<OfferEvaluation> eligibleOffers){
+    public Optional<Recommendation> recommend(List<OfferEvaluation> eligibleOffers){
         if(eligibleOffers.isEmpty()){
             return Optional.empty();
         }
