@@ -57,7 +57,7 @@ public class OfferRanker {
             OfferEvaluation current = offers.get(i);
             OfferEvaluation next = offers.get(i+1);
 
-                        if(current.equals(null)){   
+            if(current.equals(null)){   
                 throw new IllegalArgumentException();
             }
 
