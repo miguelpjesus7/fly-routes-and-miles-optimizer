@@ -1,6 +1,7 @@
 package com.flightoptimizer.domain;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class FlightSegment{
 	
@@ -44,5 +45,34 @@ public class FlightSegment{
 
 	public LocalDateTime getArrivalTime(){
 		return arrivalTime;
+	}
+
+	@Override 
+	public boolean equals(Object obj){
+		if(this == obj){
+			return true;
+		}
+
+		if(!(obj instanceof FlightSegment other)){
+			return false;
+		}
+
+		return Objects.equals(flightNumber, other.flightNumber) 
+			&& Objects.equals(destination, other.destination)
+			&& Objects.equals(origin, other.origin)
+			&& Objects.equals(departureTime, other.departureTime)
+			&& Objects.equals(arrivalTime, other.arrivalTime);
+
+	}
+
+	@Override 
+	public int hashCode(){
+		return Objects.hash(
+			flightNumber,
+			origin,
+			destination,
+			departureTime,
+			arrivalTime
+		);
 	}
 }
