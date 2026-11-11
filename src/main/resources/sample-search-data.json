@@ -1,0 +1,118 @@
+{
+  "flights": [
+    {
+      "flightNumber": "LA3000",
+      "originIataCode": "GRU",
+      "originCity": "São Paulo",
+      "destinationIataCode": "BSB",
+      "destinationCity": "Brasília",
+      "departureDateTime": "2026-09-10T08:00:00",
+      "arrivalDateTime": "2026-09-10T09:15:00"
+    },
+    {
+      "flightNumber": "LA3001",
+      "originIataCode": "BSB",
+      "originCity": "Brasília",
+      "destinationIataCode": "REC",
+      "destinationCity": "Recife",
+      "departureDateTime": "2026-09-10T10:15:00",
+      "arrivalDateTime": "2026-09-10T12:30:00"
+    },
+    {
+      "flightNumber": "LA3002",
+      "originIataCode": "GRU",
+      "originCity": "São Paulo",
+      "destinationIataCode": "REC",
+      "destinationCity": "Recife",
+      "departureDateTime": "2026-09-10T09:00:00",
+      "arrivalDateTime": "2026-09-10T12:00:00"
+    },
+    {
+      "flightNumber": "LA3003",
+      "originIataCode": "GRU",
+      "originCity": "São Paulo",
+      "destinationIataCode": "REC",
+      "destinationCity": "Recife",
+      "departureDateTime": "2026-09-11T10:00:00",
+      "arrivalDateTime": "2026-09-11T13:00:00"
+    }
+  ],
+  "cashOffers": [
+    {
+      "segments": [
+        {
+          "flightNumber": "LA3000",
+          "originIataCode": "GRU",
+          "originCity": "São Paulo",
+          "destinationIataCode": "BSB",
+          "destinationCity": "Brasília",
+          "departureDateTime": "2026-09-10T08:00:00",
+          "arrivalDateTime": "2026-09-10T09:15:00"
+        },
+        {
+          "flightNumber": "LA3001",
+          "originIataCode": "BSB",
+          "originCity": "Brasília",
+          "destinationIataCode": "REC",
+          "destinationCity": "Recife",
+          "departureDateTime": "2026-09-10T10:15:00",
+          "arrivalDateTime": "2026-09-10T12:30:00"
+        }
+      ],
+      "fareAmount": "500.00",
+      "taxesAmount": "100.00",
+      "currencyCode": "BRL"
+    },
+    {
+      "segments": [
+        {
+          "flightNumber": "LA3002",
+          "originIataCode": "GRU",
+          "originCity": "São Paulo",
+          "destinationIataCode": "REC",
+          "destinationCity": "Recife",
+          "departureDateTime": "2026-09-10T09:00:00",
+          "arrivalDateTime": "2026-09-10T12:00:00"
+        }
+      ],
+      "fareAmount": "1400.00",
+      "taxesAmount": "100.00",
+      "currencyCode": "BRL"
+    },
+    {
+      "segments": [
+        {
+          "flightNumber": "LA3002",
+          "originIataCode": "GRU",
+          "originCity": "São Paulo",
+          "destinationIataCode": "REC",
+          "destinationCity": "Recife",
+          "departureDateTime": "2026-09-10T09:00:00",
+          "arrivalDateTime": "2026-09-10T12:00:00"
+        }
+      ],
+      "fareAmount": "2300.00",
+      "taxesAmount": "100.00",
+      "currencyCode": "BRL"
+    }
+  ],
+  "milesOffers": [
+    {
+      "segments": [
+        {
+          "flightNumber": "LA3002",
+          "originIataCode": "GRU",
+          "originCity": "São Paulo",
+          "destinationIataCode": "REC",
+          "destinationCity": "Recife",
+          "departureDateTime": "2026-09-10T09:00:00",
+          "arrivalDateTime": "2026-09-10T12:00:00"
+        }
+      ],
+      "milesAmount": "50000",
+      "milesProgram": "LATAM Pass",
+      "taxesAmount": "100.00",
+      "currencyCode": "BRL"
+    }
+  ]
+}
