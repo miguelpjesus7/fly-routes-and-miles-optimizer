@@ -22,6 +22,7 @@ class JsonRawSearchDataLoaderTest {
         assertEquals(4, result.flights().size());
         assertEquals(3, result.cashOffers().size());
         assertEquals(1, result.milesOffers().size());
+        assertEquals(1, result.milesValuations().size());
 
         assertEquals(
             "LA3000",
@@ -36,6 +37,11 @@ class JsonRawSearchDataLoaderTest {
         assertEquals(
             "LATAM Pass",
             result.milesOffers().get(0).milesProgram()
+        );
+
+        assertEquals(
+            "LATAM Pass",
+            result.milesValuations().get(0).program()
         );
     }
 

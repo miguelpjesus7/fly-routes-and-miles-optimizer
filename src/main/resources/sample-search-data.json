@@ -114,5 +114,13 @@
       "taxesAmount": "100.00",
       "currencyCode": "BRL"
     }
+  ],
+  "milesValuations": [
+    {
+      "program": "LATAM Pass",
+      "pricePerThousandMilesAmount": "30.00",
+      "currencyCode": "BRL",
+      "observedAt": "2026-09-01T10:00:00Z"
+    }
   ]
 }
